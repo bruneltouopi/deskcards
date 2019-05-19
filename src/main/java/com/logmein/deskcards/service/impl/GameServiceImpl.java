@@ -11,7 +11,6 @@ import com.logmein.deskcards.service.GameService;
 import com.logmein.deskcards.utils.CardComparator;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.*;
 
 /**
