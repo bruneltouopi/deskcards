@@ -22,6 +22,7 @@ public class Player implements Serializable {
     @ManyToOne
     @JoinColumn(name = "game_id")
     private Game game;
+    @Column(unique = true)
     private String name;
     private boolean sittingOut;
 

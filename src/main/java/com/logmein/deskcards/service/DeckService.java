@@ -11,5 +11,5 @@ public interface DeckService {
 
     Deck create(Deck deck);
     GameDeck addDeckToGameDeck(Deck deck,Game game);
-    Deck shuffle(Deck deck,Game game);
+    void shuffle(Deck deck,Game game);
 }

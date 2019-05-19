@@ -26,8 +26,9 @@ public class PlayerRandDto implements Comparable<PlayerRandDto>{
         this.totalValueCard = totalValueCard;
     }
 
+    //Order Descending
     @Override
     public int compareTo(PlayerRandDto o) {
-        return this.totalValueCard-o.totalValueCard;
+        return o.totalValueCard-this.totalValueCard;
     }
 }

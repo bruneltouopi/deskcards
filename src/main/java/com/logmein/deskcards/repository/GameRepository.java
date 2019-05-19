@@ -12,6 +12,5 @@ import java.util.List;
  */
 
 public interface GameRepository extends JpaRepository<Game,Long>{
-    @Query(value = "SELECT g FROM Game g")
-    List<Game> findAll();
+
 }

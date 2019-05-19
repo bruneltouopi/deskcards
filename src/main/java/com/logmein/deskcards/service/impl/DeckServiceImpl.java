@@ -37,7 +37,7 @@ public class DeckServiceImpl implements DeckService {
     }
 
     @Override
-    public Deck shuffle(Deck deck, Game game) {
+    public void shuffle(Deck deck, Game game) {
         GameDeck gameDeck=gameDeckRepository.findByGameAndDeck(game.getId(),deck.getId());
         deck.initDeck();
         deck.shuffleDeck();
@@ -45,6 +45,5 @@ public class DeckServiceImpl implements DeckService {
         gameDeck.setNumberOfCall(gameDeck.getNumberOfCall()+1);
         deckRepository.save(deck);
         gameDeckRepository.save(gameDeck);
-        return deck;
     }
 }

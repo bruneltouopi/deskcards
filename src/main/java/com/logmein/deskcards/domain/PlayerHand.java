@@ -28,6 +28,11 @@ public class PlayerHand implements Serializable, Comparable<PlayerHand> {
     @Column(name = "card2")
     private Card card2;
 
+    @Transient
+    public int valueOfCard(){
+        return this.getCard1().getRank().getValue() + this.getCard2().getRank().getValue();
+    }
+
 
     public long getId() {
         return id;
@@ -56,7 +61,7 @@ public class PlayerHand implements Serializable, Comparable<PlayerHand> {
     }
 
     @Enumerated(EnumType.STRING)
-    protected Card getCard1() {
+    public Card getCard1() {
         return card1;
     }
 
@@ -66,7 +71,7 @@ public class PlayerHand implements Serializable, Comparable<PlayerHand> {
 
     @Column(name = "card2")
     @Enumerated(EnumType.STRING)
-    protected Card getCard2() {
+    public Card getCard2() {
         return card2;
     }
 
@@ -84,7 +89,6 @@ public class PlayerHand implements Serializable, Comparable<PlayerHand> {
     @Override
     public int compareTo(PlayerHand o) {
 
-        return (this.getCard1().getRank().getValue() + this.getCard2().getRank().getValue()) -
-                (o.getCard1().getRank().getValue() + o.getCard2().getRank().getValue());
+        return this.valueOfCard() - o.valueOfCard();
     }
 }

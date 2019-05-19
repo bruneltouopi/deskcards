@@ -2,6 +2,7 @@ package com.logmein.deskcards.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,7 @@ public class Game implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.LAZY)
-    private Set<Player> players;
+    private Set<Player> players = new HashSet<>();
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "current_hand_id")
     private HandEntity currentHand;
